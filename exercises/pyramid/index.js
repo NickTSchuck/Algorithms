@@ -14,6 +14,14 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+    for(let i = 0; i < n; i++) {
+        let numOfPounds = (i + 1) * 2 - 1;
+        let numOfSpots = n * 2 - 1;
+        console.log(" ".repeat((numOfSpots - numOfPounds) / 2) + "#".repeat(numOfPounds) + " ".repeat((numOfSpots - numOfPounds) / 2));
+    }
+}
+
+pyramid(3);
 
 module.exports = pyramid;
