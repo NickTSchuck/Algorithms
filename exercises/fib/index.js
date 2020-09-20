@@ -8,20 +8,41 @@
 // Example:
 //   fib(4) === 3
 
-//(2^N) runtime complexity
-function fib(n) {
-    if (n < 2) return n;
-    return fib(n - 1) + fib(n - 2);
+//O(N) runtime complexity. Recursion with memoization
+class fib {
+    constructor() {
+        this.cache = {};
+    }
+
+    calc(n) {
+        if (n == 0 || n == 1) return n;
+        if (this.cache[n]) return this.cache[n];
+        let output = this.calc(n - 1) + this.calc(n - 2);
+        this.cache[n] = output;
+        return output;
+    }
 }
 
-//O(n) runtime complexity
-// function fib(n) {
-//     let results = [0,1];
+module.exports = fib;
 
-//     for (let i = 2; i <= n; i++) {
-//         results.push(results[i-1] + results[i-2]);
-//     }
-//     return results[results.length-1];
+//(2^N) runtime complexity
+// function fib(n) {
+//     if (n < 2) return n;
+//     return fib(n - 1) + fib(n - 2);
 // }
 
-module.exports = fib;
+//O(n) runtime complexity
+// function fib(n) {   
+//     if (n == 0 || n == 1) return n;
+
+//     let previousNumberBy2 = 0;
+//         previousNumberBy1 = 1;
+//     for (let i = 1; i < n; i++) {
+//         let sum = previousNumberBy1 + previousNumberBy2;
+//         previousNumberBy2 = previousNumberBy1;
+//         previousNumberBy1 = sum;
+//     }
+//     return previousNumberBy1;
+// }
+
+
