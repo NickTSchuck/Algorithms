@@ -142,7 +142,5 @@ class LinkedList {
     }
 }
 
-let test = new LinkedList();
-console.log(test.getLast());
 
 module.exports = { Node, LinkedList };
